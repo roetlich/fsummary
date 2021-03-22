@@ -7,7 +7,7 @@ build:
 	cc $(FLAGS) $(CFILES) fsummary.c -o fsummary
 
 install-dependencies:
-	cd src/dependencies/yasl && cmake --configure . && cmake --build . && ./install.sh
+	git submodule update --init --recursive && cd src/dependencies/yasl && cmake --configure . && cmake --build . && ./install.sh
 
 check: build
 	 ./fsummary ./Makefile
