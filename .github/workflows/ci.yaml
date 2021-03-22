@@ -18,3 +18,9 @@ jobs:
         exclude: './src/dependencies'
         clangFormatVersion: 11
         style: llvm
+  
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: make build
