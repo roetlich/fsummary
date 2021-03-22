@@ -4,7 +4,7 @@ HEADERS=src/dependencies/sds/*.h src/dependencies/toml/*.h src/**/*.h src/*.h
 
 
 build:
-	cc $(FLAGS) $(CFILES) fsummary.c -o fsummary
+	cc $(FLAGS) $(CFILES) fsummary.c -lm -ldl -o fsummary
 
 install-dependencies:
 	git submodule init && cd src/dependencies/yasl && cmake --configure . && cmake --build .
