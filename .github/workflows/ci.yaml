@@ -26,12 +26,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: recursive
-          
-      - name: Get submodules
-        run: git submodule update --init --recursive
 
       - name: install dependencies
-        run: make install-dependencies
+        run: sudo make install-dependencies
 
       - name: build
         run: make build
