@@ -1,8 +1,10 @@
+#include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <time.h>
+#include "langs/yasl-binding.h"
 
 int main(int argc, char *argv[]) {
   struct stat sb;
@@ -61,6 +63,6 @@ int main(int argc, char *argv[]) {
   printf("Last status change:       %s", ctime(&sb.st_ctime));
   printf("Last file access:         %s", ctime(&sb.st_atime));
   printf("Last file modification:   %s", ctime(&sb.st_mtime));
-
+  load_yasl(sdsnew("./src/langs/example.yasl"), sdsnew(argv[1]));
   exit(EXIT_SUCCESS);
 }

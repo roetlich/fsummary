@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "name": "Win32",
+      "includePath": ["./src", "./src/dependencies", "${default}"],
+      "defines": ["${default}"],
+      "forcedInclude": ["${default}"],
+      "compileCommands": "${default}",
+      "compilerArgs": [
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-Wmissing-prototypes",
+        "-Wstrict-prototypes",
+        "-Wold-style-definition"
+      ],
+      "browse": {
+        "limitSymbolsToIncludedHeaders": false,
+        "databaseFilename": "${default}",
+        "path": ["${default}"]
+      },
+      "intelliSenseMode": "${default}",
+      "cStandard": "c99",
+      "compilerPath": "${default}"
+    }
+  ],
+  "version": 4
+}

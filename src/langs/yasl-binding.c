@@ -1,0 +1,26 @@
+#include "yasl-binding.h"
+#include "yasl/yasl.h"
+
+bool load_yasl(sds script_path, sds file_path) {
+  // make a new YASL state, loaded the script from script_path
+  struct YASL_State *S = YASL_newstate(script_path);
+
+  // Enable use of the io lib
+  YASL_decllib_io(S);
+
+  // declare a variable `answer`
+  YASL_declglobal(S, "file_path");
+
+  // push the file path onto the stack
+  YASL_pushlitszstring(S, file_path);
+
+  // init `answer` with the top of the stack (in this case, the `42` we just
+  // pushed)
+  YASL_setglobal(S, "file_path");
+
+  // execute `example.yasl`, now that we're done setting everything up
+  YASL_execute(S);
+
+  // clean up
+  YASL_delstate(S);
+}
