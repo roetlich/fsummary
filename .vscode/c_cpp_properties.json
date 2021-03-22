@@ -10,7 +10,6 @@
         "-Wall",
         "-Wextra",
         "-pedantic",
-        "-Wmissing-prototypes",
         "-Wstrict-prototypes",
         "-Wold-style-definition"
       ],
