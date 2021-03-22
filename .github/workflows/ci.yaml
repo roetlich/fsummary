@@ -25,5 +25,8 @@ jobs:
       - uses: actions/checkout@master
         with:
           fetch-depth: 1
+      - name: install dependencies
+        run: make install-dependencies
+
       - name: build
         run: make build

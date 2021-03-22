@@ -6,6 +6,9 @@ HEADERS=src/dependencies/sds/*.h src/dependencies/toml/*.h src/**/*.h src/*.h
 build:
 	cc $(FLAGS) $(CFILES) fsummary.c -o fsummary
 
+install-dependencies:
+	cd src/dependencies/yasl && cmake --configure . && cmake --build . && ./install.sh
+
 check: build
 	 ./fsummary ./Makefile
 
