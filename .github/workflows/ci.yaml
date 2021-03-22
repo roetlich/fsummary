@@ -19,7 +19,7 @@ jobs:
         clangFormatVersion: 11
         style: llvm
   
-  setup:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository and submodules
@@ -30,16 +30,8 @@ jobs:
       - name: install dependencies
         run: sudo make install-dependencies
 
-  build:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
       - name: build
         run: make build
-        
-  unit-tests:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: build
+
+      - name: test
         run: make test
