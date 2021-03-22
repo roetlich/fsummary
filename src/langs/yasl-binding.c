@@ -1,5 +1,5 @@
 #include "yasl-binding.h"
-#include "yasl/yasl.h"
+#include "dependencies/yasl/yasl.h"
 
 bool load_yasl(sds script_path, sds file_path) {
   // make a new YASL state, loaded the script from script_path
