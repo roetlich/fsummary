@@ -1,10 +1,10 @@
+#include "langs/yasl-binding.h"
 #include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <time.h>
-#include "langs/yasl-binding.h"
 
 int main(int argc, char *argv[]) {
   struct stat sb;

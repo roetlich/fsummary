@@ -6,10 +6,10 @@ HEADERS=src/dependencies/sds/*.h src/dependencies/toml/*.h src/**/*.h src/*.h
 build:
 	cc $(FLAGS) $(CFILES) fsummary.c -o fsummary
 
-check:
-	cc $(FLAGS) $(CFILES) fsummary.c -o fsummary && ./fsummary ./Makefile
+check: build
+	 ./fsummary ./Makefile
 
-tests:
+test:
 	cc $(FLAGS) $(CFILES) ./test.c -o test && ./test
 
 format: 

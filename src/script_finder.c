@@ -14,7 +14,7 @@ sds get_filename_ext(sds filename) {
   const char *dot = strrchr(filename, '.');
   if (!dot)
     return filename;
-  return dot + 1;
+  return sdsnew(dot + 1);
 }
 
 sds get_filename_without_ext(sds filename) {
