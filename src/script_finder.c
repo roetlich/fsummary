@@ -11,7 +11,11 @@ sds sub_str(sds str, int start, int end) {
 }
 
 sds get_filename_ext(sds filename) {
-  const char *dot = strrchr(filename, '.'); if (!dot) return filename;return sdsnew(dot + 1);}
+  const char *dot = strrchr(filename, '.');
+  if (!dot)
+    return filename;
+  return sdsnew(dot + 1);
+}
 
 sds get_filename_without_ext(sds filename) {
   //   char *end = filename + strlen(filename);
