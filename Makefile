@@ -1,4 +1,4 @@
-FLAGS=-I. -Isrc -Isrc/dependencies -Lsrc/dependencies/yasl -std=c99 -O3 -Wall -Wextra -pedantic -Wstrict-prototypes -Wold-style-definition
+FLAGS=-I. -Isrc -Isrc/dependencies -lm -ldl -std=c99 -O3 -Wall -Wextra -pedantic -Wstrict-prototypes -Wold-style-definition
 CFILES=src/dependencies/sds/*.c src/dependencies/toml/*.c src/**/*.c src/*.c ./src/dependencies/yasl/libyaslapi.a
 HEADERS=src/dependencies/sds/*.h src/dependencies/toml/*.h src/**/*.h src/*.h
 
