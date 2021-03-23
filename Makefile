@@ -7,8 +7,16 @@ HEADERS=src/dependencies/sds/*.h src/dependencies/toml/*.h src/**/*.h src/*.h
 build:
 	cc $(FLAGS) $(CFILES) fsummary.c $(LINKER_FLAGS) -o fsummary
 
-install-dependencies:
-	git submodule init && cd src/dependencies/yasl && cmake --configure . && cmake --build .
+git-get-submodules:
+	git submodule init
+
+install-yasl: git-get-submodules
+	cd src/dependencies/yasl && cmake --configure . && cmake --build .
+
+install-lua: git-get-submodules
+	cd src/dependencies/lua && make all test
+
+install-dependencies: install-yasl install-lua
 
 check: build
 	 ./fsummary ./Makefile
