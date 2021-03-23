@@ -13,8 +13,13 @@ git-get-submodules:
 install-yasl: git-get-submodules
 	cd src/dependencies/yasl && cmake --configure . && cmake --build .
 
-install-lua: git-get-submodules
-	cd src/dependencies/lua && make all test
+install-lua:
+	curl -R -O http://www.lua.org/ftp/lua-5.4.2.tar.gz && \
+	mkdir -p ./src/dependencies/lua && \
+	tar zxf lua-5.4.2.tar.gz -C ./src/dependencies/lua --strip-components=1 && \
+	rm lua-5.4.2.tar.gz && \
+	cd src/dependencies/lua && \
+	make all test
 
 install-dependencies: install-yasl install-lua
 
