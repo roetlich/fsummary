@@ -1,5 +1,5 @@
 #include "yasl-binding.h"
-#include "yasl/yasl.h"
+#include "dependencies/yasl/yasl.h"
 
 bool load_yasl(sds script_path, sds file_path) {
   // make a new YASL state, loaded the script from script_path
@@ -12,7 +12,7 @@ bool load_yasl(sds script_path, sds file_path) {
   YASL_declglobal(S, "file_path");
 
   // push the file path onto the stack
-  YASL_pushlitszstring(S, file_path);
+  YASL_pushlstr(S, file_path, sdslen(file_path));
 
   // init `answer` with the top of the stack (in this case, the `42` we just
   // pushed)
