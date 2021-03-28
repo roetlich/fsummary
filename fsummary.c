@@ -1,4 +1,5 @@
-#include "langs/yasl-binding.h"
+#include "langs/langs.h"
+
 #include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -63,6 +64,10 @@ int main(int argc, char *argv[]) {
   printf("Last status change:       %s", ctime(&sb.st_ctime));
   printf("Last file access:         %s", ctime(&sb.st_atime));
   printf("Last file modification:   %s", ctime(&sb.st_mtime));
-  load_yasl(sdsnew("./src/langs/example.yasl"), sdsnew(argv[1]));
-  exit(EXIT_SUCCESS);
+  bool status = load_script(sdsnew("./src/langs/example.lua"), sdsnew(argv[1]));
+  if (status) {
+    return EXIT_SUCCESS;
+  } else {
+    return EXIT_FAILURE;
+  }
 }
