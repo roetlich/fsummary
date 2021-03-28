@@ -31,3 +31,7 @@ test:
 
 format: 
 	 clang-format -i --style=llvm $(CFILES) $(HEADERS)
+
+clean:
+	rm -rf src/dependencies/lua/ ; \
+	rm src/dependencies/yasl/libyaslapi.a

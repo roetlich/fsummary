@@ -283,8 +283,7 @@ typedef enum cester_test_type {
 typedef struct test_instance {
   unsigned argc; /**< the length of the command line arg */
   char **argv;   /**< the command line arguments   */
-  void
-      *arg; /**< pointer to an object that can be passed between unit tests */
+  void *arg; /**< pointer to an object that can be passed between unit tests */
 } TestInstance;
 
 /**

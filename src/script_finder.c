@@ -17,14 +17,14 @@ sds get_filename_ext(sds filename) {
   return sdsnew(dot + 1);
 }
 
-sds get_filename_without_ext(sds filename) {
-  //   char *end = filename + strlen(filename);
+// sds get_filename_without_ext(sds filename) {
+//   //   char *end = filename + strlen(filename);
 
-  //   while (end > filename && *end != '.' && *end != '\\' && *end != '/') {
-  //     --end;
-  //   }
-  //   if ((end > filename && *end == '.') &&
-  //       (*(end - 1) != '\\' && *(end - 1) != '/')) {
-  //     *end = '\0';
-  //   }
-}
+//   //   while (end > filename && *end != '.' && *end != '\\' && *end != '/') {
+//   //     --end;
+//   //   }
+//   //   if ((end > filename && *end == '.') &&
+//   //       (*(end - 1) != '\\' && *(end - 1) != '/')) {
+//   //     *end = '\0';
+//   //   }
+// }
