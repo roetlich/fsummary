@@ -1,6 +1,6 @@
 FLAGS=-I. -Isrc -Isrc/dependencies -lm -ldl -std=c99 -O3 -Wall -Wextra -pedantic -Wstrict-prototypes -Wold-style-definition
 LINKER_FLAGS=-lm -ldl
-CFILES=src/dependencies/sds/*.c src/dependencies/toml/*.c src/**/*.c src/*.c ./src/dependencies/yasl/libyaslapi.a ./src/dependencies/lua/src/liblua.a
+CFILES=src/dependencies/sds/*.c src/dependencies/toml/*.c src/**/*.c src/*.c ./src/dependencies/yasl/build/libyaslapi.a ./src/dependencies/lua/src/liblua.a
 HEADERS=src/dependencies/sds/*.h src/dependencies/toml/*.h src/**/*.h src/*.h
 
 
@@ -11,7 +11,9 @@ git-get-submodules:
 	git submodule init
 
 install-yasl: git-get-submodules
-	cd src/dependencies/yasl && cmake --configure . && cmake --build .
+	mkdir -p src/dependencies/yasl/build && \
+	cd src/dependencies/yasl/build && \
+	cmake .. -GNinja && cmake --build . 
 
 install-lua:
 	curl -R -O http://www.lua.org/ftp/lua-5.4.2.tar.gz && \
