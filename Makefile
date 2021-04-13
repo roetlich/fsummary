@@ -31,8 +31,8 @@ check: build
 test:
 	cc $(FLAGS) $(CFILES) ./test.c $(LINKER_FLAGS) -o test && ./test
 
-format: 
-	 find src/ -iname *.h -o -iname *.c | xargs clang-format -i --style=llvm
+format:
+	 find src -iname '*.c' -or -iname '*.h' | xargs clang-format -i --style=llvm *.c
 
 
 clean:
