@@ -64,7 +64,8 @@ int main(int argc, char *argv[]) {
   printf("Last status change:       %s", ctime(&sb.st_ctime));
   printf("Last file access:         %s", ctime(&sb.st_atime));
   printf("Last file modification:   %s", ctime(&sb.st_mtime));
-  bool status = load_script(sdsnew("./src/langs/example.yasl"), sdsnew(argv[1]));
+  bool status =
+      load_script(sdsnew("./src/langs/example.yasl"), sdsnew(argv[1]));
   if (status) {
     return EXIT_SUCCESS;
   } else {
