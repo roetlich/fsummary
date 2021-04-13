@@ -32,7 +32,7 @@ test:
 	cc $(FLAGS) $(CFILES) ./test.c $(LINKER_FLAGS) -o test && ./test
 
 format:
-	 find src -iname '*.c' -or -iname '*.h' | xargs clang-format -i --style=llvm *.c
+	 find . -path ./dependencies -prune -false -o -iname '*.c' -or -iname '*.h'| xargs clang-format -i --style=llvm
 
 
 clean:
