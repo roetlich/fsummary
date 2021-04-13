@@ -19,7 +19,7 @@ jobs:
         uses: seanmiddleditch/gha-setup-ninja@master
 
       - name: install dependencies
-        run: sudo make install-dependencies
+        run: make install-dependencies
 
       - name: test
         run: make test
