@@ -13,7 +13,7 @@ git-get-submodules:
 install-yasl: git-get-submodules
 	mkdir -p src/dependencies/yasl/build && \
 	cd src/dependencies/yasl/build && \
-	cmake .. -GNinja && cmake --build . 
+	cmake .. && cmake --build . 
 
 install-lua:
 	curl -R -O http://www.lua.org/ftp/lua-5.4.2.tar.gz && \
