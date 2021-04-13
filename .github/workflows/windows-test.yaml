@@ -7,31 +7,19 @@ on:
   pull_request:
 
 jobs:
-  check-formatting:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - uses: DoozyX/clang-format-lint-action@v0.11
-      with:
-        source: '.'
-        exclude: './src/dependencies'
-        clangFormatVersion: 11
-        style: llvm
-  
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v2
         with:
           submodules: recursive
 
+      - name: install ninja
+      - uses: seanmiddleditch/gha-setup-ninja@master
+
       - name: install dependencies
         run: sudo make install-dependencies
-
-      - name: build
-        run: make build
 
       - name: test
         run: make test
