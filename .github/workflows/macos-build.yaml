@@ -1,0 +1,25 @@
+name: macos build
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: install ninja
+        uses: seanmiddleditch/gha-setup-ninja@master
+
+      - name: install dependencies
+        run: make install-dependencies
+
+      - name: build
+        run: make build

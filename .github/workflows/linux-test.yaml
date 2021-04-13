@@ -1,0 +1,25 @@
+name: linux test
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+
+jobs:  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: install ninja
+        uses: seanmiddleditch/gha-setup-ninja@master
+
+      - name: install dependencies
+        run: make install-dependencies
+
+      - name: test
+        run: make test
