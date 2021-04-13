@@ -5,3 +5,4 @@ sds sub_str(sds, int, int);
 
 sds get_filename_ext(sds);
 sds get_filename_without_ext(sds);
+sds find_script(sds filename, sds scripts_dir);
