@@ -1,7 +1,0 @@
-let file = io.open(file_path);
-
-echo file->read('l');
-echo file->read('l');
-echo file->read('l');
-echo file->read('l');
-echo file->read('l');

@@ -1,4 +1,4 @@
 test
 fsummary
 lua*.tar.gz
-src/dependencies/lua
+dependencies/lua
