@@ -32,7 +32,8 @@ test:
 	cc $(FLAGS) $(CFILES) ./test.c $(LINKER_FLAGS) -o test && ./test
 
 format: 
-	 clang-format -i --style=llvm $(CFILES) $(HEADERS)
+	 find src/ -iname *.h -o -iname *.c | xargs clang-format -i --style=llvm
+
 
 clean:
 	rm -rf dependencies/lua/ ; \
