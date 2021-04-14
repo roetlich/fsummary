@@ -23,4 +23,6 @@ bool load_yasl(sds script_path, sds file_path) {
 
   // clean up
   YASL_delstate(S);
+
+  return true;
 }
