@@ -52,7 +52,8 @@ int main(int argc, char *argv[]) {
 
   // printf("I-node number:            %ld\n", (long)sb.st_ino);
 
-  // printf("Mode:                     %lo (octal)\n", (unsigned long)sb.st_mode);
+  // printf("Mode:                     %lo (octal)\n", (unsigned
+  // long)sb.st_mode);
 
   // printf("Link count:               %ld\n", (long)sb.st_nlink);
   // printf("Ownership:                UID=%ld   GID=%ld\n", (long)sb.st_uid,
@@ -68,15 +69,13 @@ int main(int argc, char *argv[]) {
   sds scripts_dir = sdsnew("./scripts");
   sds file_path = sdsnew(argv[1]);
   sds script = find_script(file_path, scripts_dir);
-  if(sdslen(script) == 0) {
+  if (sdslen(script) == 0) {
     puts("No matching script found");
     return EXIT_FAILURE;
-  }
-  else {
+  } else {
     puts(script);
 
-    bool status =
-        load_script(script, file_path);
+    bool status = load_script(script, file_path);
     if (status) {
       return EXIT_SUCCESS;
     } else {
