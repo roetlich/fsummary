@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
-#include <string.h>
 
 sds sub_str(sds str, int start, int end) {
   int l = end - start;
