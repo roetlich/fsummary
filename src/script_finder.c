@@ -32,7 +32,6 @@ sds find_script(sds filename, sds scripts_dir) {
       }
     }
   }
-  printf("done");
   return sdsempty();
 }
 
