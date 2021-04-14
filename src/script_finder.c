@@ -21,20 +21,17 @@ sds get_filename_ext(sds filename) {
 
 sds find_script(sds filename, sds scripts_dir) {
   sds file_extension = get_filename_ext(filename);
-  int len = sdslen(file_extension);
   DIR *dir = opendir(scripts_dir);
   struct dirent *entry;
   if (dir == NULL) {
     return sdsempty();
   } else {
     while ((entry = readdir(dir))) {
-      int cmp = memcmp(file_extension, entry->d_name, sdslen(file_extension));
       if (memcmp(file_extension, entry->d_name, sdslen(file_extension)) == 0) {
         return sdscat(sdscat(scripts_dir, "/"), entry->d_name);
       }
     }
   }
-  printf("done");
   return sdsempty();
 }
 

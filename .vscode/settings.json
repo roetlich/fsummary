@@ -1,5 +1,12 @@
 {
     "C_Cpp.clang_format_fallbackStyle": "llvm",
     "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true
+    "files.trimFinalNewlines": true,
+    "cSpell.words": [
+        "fsummary"
+    ],
+    "files.associations": {
+        "__string": "c",
+        "cstring": "c"
+    }
 }
