@@ -2,7 +2,7 @@
   "configurations": [
     {
       "name": "Win32",
-      "includePath": ["./src", "./src/dependencies", "${default}"],
+      "includePath": ["./src", "./dependencies", "${default}"],
       "defines": ["${default}"],
       "forcedInclude": ["${default}"],
       "compileCommands": "${default}",

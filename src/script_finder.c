@@ -1,7 +1,9 @@
 #include "script_finder.h"
+#include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
 
 sds sub_str(sds str, int start, int end) {
   int l = end - start;
@@ -15,6 +17,25 @@ sds get_filename_ext(sds filename) {
   if (!dot)
     return filename;
   return sdsnew(dot + 1);
+}
+
+sds find_script(sds filename, sds scripts_dir) {
+  sds file_extension = get_filename_ext(filename);
+  int len = sdslen(file_extension);
+  DIR *dir = opendir(scripts_dir);
+  struct dirent *entry;
+  if (dir == NULL) {
+    return sdsempty();
+  } else {
+    while ((entry = readdir(dir))) {
+      int cmp = memcmp(file_extension, entry->d_name, sdslen(file_extension));
+      if (memcmp(file_extension, entry->d_name, sdslen(file_extension)) == 0) {
+        return sdscat(sdscat(scripts_dir, "/"), entry->d_name);
+      }
+    }
+  }
+  printf("done");
+  return sdsempty();
 }
 
 // sds get_filename_without_ext(sds filename) {
