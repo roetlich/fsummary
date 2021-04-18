@@ -24,5 +24,6 @@ CESTER_TEST(check_match_macro, inst,
             cester_assert_false(MATCH(sdsnew("test"), "nope"));)
 
 CESTER_TEST(find_scripts_correctly, inst,
-            cester_assert_str_equal(
-                find_script(sdsnew("Makefile"), sdsnew("scripts")), "scripts/Makefile.lua");)
+            cester_assert_str_equal(find_script(sdsnew("Makefile"),
+                                                sdsnew("scripts")),
+                                    "scripts/Makefile.lua");)
