@@ -1,5 +1,6 @@
 #include "langs.h"
 #include "lua-binding.h"
+#include "string_helpers.h"
 #include "yasl-binding.h"
 #include <stdio.h>
 #include <string.h>
@@ -22,20 +23,15 @@ bool load_script(sds script_path, sds file_path) {
     return load_script_lang(lang, script_path, file_path);
 }
 
-sds get_filename_ext_2(sds filename) {
-  const char *dot = strrchr(filename, '.');
-  if (!dot)
-    return filename;
-  return sdsnew(dot + 1);
-}
-
 Lang get_lang(sds script_path) {
-  sds ext = get_filename_ext_2(script_path);
-  if (sdscmp(ext, sdsnew("lua")) == 0) {
+  sds ext = get_filename_ext(script_path);
+  puts(ext);
+  if (MATCH(ext, "lua")) {
     return lua_lang;
   }
-  if (sdscmp(ext, sdsnew("yasl")) == 0) {
+  if (MATCH(ext, "yasl")) {
     return yasl_lang;
   }
+  sdsfree(ext);
   return unknown_lang;
 }

@@ -1,5 +1,6 @@
 #include "langs/langs.h"
 #include "script_finder.h"
+#include "string_helpers.h"
 
 #include <dirent.h>
 #include <stdio.h>
@@ -15,20 +16,17 @@ void print_help() {
   puts("");
 }
 
-bool starts_with_dashdash(sds str) {
-  return (sdslen(str) >= 2) && (memcmp(str, "--", 2) == 0);
-}
-
+#ifndef TESTS
 int main(int argc, char *argv[]) {
   sds file_name = sdsempty();
   sds script_dir = sdsempty();
 
   for (int i = 1; i < argc; i++) {
     sds arg = sdsnew(argv[i]);
-    if (sdscmp(arg, sdsnew("-h")) == 0 || sdscmp(arg, sdsnew("--help")) == 0) {
+    if (MATCH(arg, "-h") || MATCH(arg, "--help")) {
       print_help();
       return EXIT_SUCCESS;
-    } else if (sdscmp(arg, sdsnew("--script-dir")) == 0) {
+    } else if (MATCH(arg, "--script-dir")) {
       if (i == argc) {
         fprintf(stderr, "Error: Missing script directory\n");
         return EXIT_FAILURE;
@@ -37,8 +35,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Error: Setting script directory twice\n");
         return EXIT_FAILURE;
       }
-      script_dir = sdsnew(argv[i]);
-      i++;
+      script_dir = sdsnew(argv[++i]);
     } else if (starts_with_dashdash(arg)) {
       fprintf(stderr, "Unkonwn option: \t%s\n", arg);
       return EXIT_FAILURE;
@@ -67,15 +64,13 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  sds file_path = sdsnew(argv[1]);
-  sds script = find_script(file_path, script_dir);
+  sds script = find_script(file_name, script_dir);
   if (sdslen(script) == 0) {
     puts("No matching script found");
     return EXIT_FAILURE;
   } else {
-    puts(script);
 
-    bool status = load_script(script, file_path);
+    bool status = load_script(script, file_name);
     if (status) {
       return EXIT_SUCCESS;
     } else {
@@ -83,3 +78,4 @@ int main(int argc, char *argv[]) {
     }
   }
 }
+#endif

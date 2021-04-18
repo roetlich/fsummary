@@ -1,7 +1,7 @@
 #include "lua-binding.h"
-#include "dependencies/lua/src/lauxlib.h"
-#include "dependencies/lua/src/lua.h"
-#include "dependencies/lua/src/lualib.h"
+#include "lua/src/lauxlib.h"
+#include "lua/src/lua.h"
+#include "lua/src/lualib.h"
 #include <stdio.h>
 
 bool load_lua(sds script_path, sds file_path) {
@@ -11,7 +11,7 @@ bool load_lua(sds script_path, sds file_path) {
   luaopen_string(L);
   lua_pushlstring(L, file_path, sdslen(file_path));
   lua_setglobal(L, "file_path");
-
+  printf("Doing the lua! \n");
   int h = luaL_dofile(L, script_path);
   if (h != 0) {
     fprintf(stderr, "\nluaL_dofile failed(%i): %s\n", h, lua_tostring(L, -1));
