@@ -2,3 +2,4 @@ test
 fsummary
 lua*.tar.gz
 dependencies/lua
+*.dSYM/Inflo.plist

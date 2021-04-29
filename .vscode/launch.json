@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/fsummary",
             "preLaunchTask": "build-debug",
-            "args": ["--script-dir", "scripts", ".vscode/launch.json"],
+            "args": ["--script-dir", "scripts/", "Makefile"],
         }
     ]
 }

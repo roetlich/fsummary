@@ -10,7 +10,7 @@
 #include <sys/types.h>
 #include <time.h>
 
-void print_help() {
+void print_help(void) {
   puts("Usage: fsummary [OPTION...] FILE");
   puts("Print information about a file, extendable with scripts");
   puts("");
@@ -20,9 +20,11 @@ void print_help() {
 int main(int argc, char *argv[]) {
   sds file_name = sdsempty();
   sds script_dir = sdsempty();
+  sds arg = 0;
 
   for (int i = 1; i < argc; i++) {
-    sds arg = sdsnew(argv[i]);
+    sdsfree(arg);
+    arg = sdsnew(argv[i]);
     if (MATCH(arg, "-h") || MATCH(arg, "--help")) {
       print_help();
       return EXIT_SUCCESS;
@@ -63,8 +65,10 @@ int main(int argc, char *argv[]) {
       return EXIT_FAILURE;
     }
   }
+  sdsfree(arg);
 
-  sds script = find_script(file_name, script_dir);
+  char* script = find_script(file_name, script_dir);
+  
   if (sdslen(script) == 0) {
     puts("No matching script found");
     return EXIT_FAILURE;
