@@ -1,7 +1,7 @@
 FLAGS=-I. -Isrc -Idependencies -lm -ldl -std=c99 -Wall -Wextra -pedantic -Wstrict-prototypes -Wold-style-definition
 LINKER_FLAGS=-Isrc -Idependencies -lm -ldl
-CFILES=dependencies/sds/*.c dependencies/toml/*.c src/**/*.c src/*.c ./dependencies/yasl/build/libyaslapi.a ./dependencies/lua/src/liblua.a
-HEADERS=dependencies/sds/*.h dependencies/toml/*.h src/**/*.h src/*.h
+CFILES=dependencies/toml/*.c src/**/*.c src/*.c ./dependencies/yasl/build/libyaslapi.a ./dependencies/lua/src/liblua.a
+HEADERS=dependencies/toml/*.h src/**/*.h src/*.h
 
 
 build:
