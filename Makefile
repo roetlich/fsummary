@@ -29,7 +29,7 @@ install-lua:
 install-dependencies: install-yasl install-lua
 
 check: build
-	 ./fsummary ./Makefile
+	 ./fsummary --script-dir ./scripts Makefile
 
 run-tests:
 	 cc  -I. -lm -ldl -std=c99 -D"TESTS=1" $(CFILES) ./tests/test*.c $(LINKER_FLAGS) -o test && ./test
