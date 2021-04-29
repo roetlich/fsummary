@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-bool load_lua(char* script_path, char* file_path) {
+bool load_lua(char *script_path, char *file_path) {
   lua_State *L = luaL_newstate();
   luaL_openlibs(L);
   luaopen_math(L);

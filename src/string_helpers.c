@@ -4,7 +4,6 @@
 #include <string.h>
 #include <sys/types.h>
 
-
 char *get_filename_ext(char *filename) {
   const char *dot = strrchr(filename, '.');
   if (!dot)
