@@ -6,8 +6,8 @@
 #include <string.h>
 #include <sys/types.h>
 
-sds find_script(char* filename, char* scripts_dir) {
-  char* file_extension = get_filename_ext(filename);
+sds find_script(char *filename, char *scripts_dir) {
+  char *file_extension = get_filename_ext(filename);
   printf("filename: %s\n", filename);
   printf("scripts dir: %s\n", scripts_dir);
   DIR *dir = opendir(scripts_dir);
@@ -16,7 +16,7 @@ sds find_script(char* filename, char* scripts_dir) {
     while ((entry = readdir(dir))) {
       if (memcmp(file_extension, entry->d_name, sdslen(file_extension)) == 0) {
         closedir(dir);
-        return sdscat(s(scripts_dir, "/"), entry->d_name);
+        return sdscat(sdscat(scripts_dir, "/"), entry->d_name);
       }
     }
   }

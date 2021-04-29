@@ -67,8 +67,8 @@ int main(int argc, char *argv[]) {
   }
   sdsfree(arg);
 
-  char* script = find_script(file_name, script_dir);
-  
+  char *script = find_script(file_name, script_dir);
+
   if (sdslen(script) == 0) {
     puts("No matching script found");
     return EXIT_FAILURE;
