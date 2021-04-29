@@ -17,9 +17,9 @@ void print_help(void) {
 }
 
 #ifndef TESTS
-int main(int argc, char *argv[]) {
-  char *file_name = 0;
-  char *script_dir = 0;
+int main(int argc, const char *argv[]) {
+  const char *file_name = 0;
+  const char *script_dir = 0;
 
   for (int i = 1; i < argc; i++) {
     char *arg = argv[i];
@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  char *script = find_script(file_name, script_dir);
+  const char *script = find_script(file_name, script_dir);
 
   if (strlen(script) == 0) {
     puts("No matching script found");

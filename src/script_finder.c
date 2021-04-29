@@ -6,8 +6,8 @@
 #include <string.h>
 #include <sys/types.h>
 
-char *find_script(char *filename, char *scripts_dir) {
-  char *file_extension = get_filename_ext(filename);
+const char *find_script(const char *filename, const char *scripts_dir) {
+  const char *file_extension = get_filename_ext(filename);
   DIR *dir = opendir(scripts_dir);
   struct dirent *entry;
   if (dir == NULL) {

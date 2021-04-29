@@ -1,3 +1,3 @@
 #pragma once
 
-char *find_script(char *filename, char *scripts_dir);
+const char *find_script(const char *filename, const char *scripts_dir);

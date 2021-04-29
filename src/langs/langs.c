@@ -6,7 +6,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-bool load_script_lang(Lang lang, char *script_path, char *file_path) {
+bool load_script_lang(Lang lang, const char *script_path,
+                      const char *file_path) {
   switch (lang) {
   case lua_lang:
     return load_lua(script_path, file_path);
@@ -16,7 +17,7 @@ bool load_script_lang(Lang lang, char *script_path, char *file_path) {
     return false;
   }
 }
-bool load_script(char *script_path, char *file_path) {
+bool load_script(const char *script_path, const char *file_path) {
   Lang lang = get_lang(script_path);
   if (lang == unknown_lang)
     return false;
@@ -24,8 +25,8 @@ bool load_script(char *script_path, char *file_path) {
     return load_script_lang(lang, script_path, file_path);
 }
 
-Lang get_lang(char *script_path) {
-  char *ext = get_filename_ext(script_path);
+Lang get_lang(const char *script_path) {
+  const char *ext = get_filename_ext(script_path);
   puts(ext);
   if (MATCH(ext, "lua")) {
     return lua_lang;
