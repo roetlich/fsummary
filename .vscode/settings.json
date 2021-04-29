@@ -8,8 +8,7 @@
     "files.associations": {
         "__string": "c",
         "cstring": "c",
-        "string_helpers.h": "c",
-        "cester.h": "c"
+        "*.h": "c",
     },
     "Lua.diagnostics.globals": [
         "file_path"

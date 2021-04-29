@@ -6,18 +6,20 @@
 #include <string.h>
 #include <sys/types.h>
 
-sds find_script(sds filename, sds scripts_dir) {
-  sds file_extension = sdsnew(get_filename_ext(filename));
+char *find_script(char *filename, char *scripts_dir) {
+  char *file_extension = get_filename_ext(filename);
   DIR *dir = opendir(scripts_dir);
   struct dirent *entry;
   if (dir == NULL) {
-    return sdsempty();
+    return "";
   } else {
     while ((entry = readdir(dir))) {
-      if (memcmp(file_extension, entry->d_name, sdslen(file_extension)) == 0) {
-        return sdscat(sdscat(scripts_dir, "/"), entry->d_name);
+      if (!memcmp(file_extension, entry->d_name, strlen(file_extension))) {
+        char *dest = malloc((120) * sizeof(char));
+        sprintf(dest, "%s/%s", scripts_dir, entry->d_name);
+        return dest;
       }
     }
   }
-  return sdsempty();
+  return 0;
 }

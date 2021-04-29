@@ -1,5 +1,4 @@
 #pragma once
-#include "sds/sds.h"
 #include <stdbool.h>
 
-bool load_yasl(sds script_path, sds file_path);
+bool load_yasl(char* script_path, char* file_path);

@@ -1,4 +1,4 @@
 #pragma once
-#include "sds/sds.h"
 
-sds find_script(sds filename, sds scripts_dir);
+
+char* find_script(char* filename, char* scripts_dir);
