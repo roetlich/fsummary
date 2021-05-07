@@ -12,7 +12,12 @@
 
 void print_help(void) {
   puts("Usage: fsummary [OPTION...] FILE");
-  puts("Print information about a file, extendable with scripts");
+  puts("Print information about the FILE, extendable with scripts");
+  puts("");
+  puts("-h, --help              display this help and exit");
+  puts("    --scripts-dir dir   specify the directory of the scripts");
+  puts("");
+  puts("You need to specify the scripts directory, either with --scripts-dir or with the FSUMMARY_SCRIPTS env variable.");
   puts("");
 }
 
