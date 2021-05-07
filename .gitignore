@@ -3,3 +3,4 @@ fsummary
 lua*.tar.gz
 dependencies/lua
 *.dSYM/Inflo.plist
+.cache

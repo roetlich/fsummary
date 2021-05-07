@@ -12,7 +12,6 @@ bool load_lua(const char *script_path, const char *file_path) {
   luaopen_string(L);
   lua_pushlstring(L, file_path, strlen(file_path));
   lua_setglobal(L, "file_path");
-  printf("Doing the lua! \n");
   int h = luaL_dofile(L, script_path);
   if (h != 0) {
     fprintf(stderr, "\nluaL_dofile failed(%i): %s\n", h, lua_tostring(L, -1));

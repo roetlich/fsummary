@@ -27,7 +27,6 @@ bool load_script(const char *script_path, const char *file_path) {
 
 Lang get_lang(const char *script_path) {
   const char *ext = get_filename_ext(script_path);
-  puts(ext);
   if (MATCH(ext, "lua")) {
     return lua_lang;
   }
