@@ -1,5 +1,4 @@
 #pragma once
-#include "sds/sds.h"
 #include <stdbool.h>
 
-bool load_lua(sds script_path, sds file_path);
+bool load_lua(const char *script_path, const char *file_path);

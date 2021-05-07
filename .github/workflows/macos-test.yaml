@@ -22,4 +22,7 @@ jobs:
         run: make install-dependencies
 
       - name: test
-        run: make test
+        run: make run-tests
+
+      - name: e2e
+        run: make check

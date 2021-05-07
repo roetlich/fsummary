@@ -7,6 +7,11 @@
             "label": "build-debug",
             "type": "shell",
             "command": "make build-debug"
+        },
+        {
+            "label": "test",
+            "type": "shell",
+            "command": "make run-tests"
         }
     ]
 }

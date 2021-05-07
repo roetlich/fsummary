@@ -10,7 +10,7 @@ This is a project to compare scripting languages. It's also a usable CLI tool, t
 git clone https://github.com/roetlich/fsummary.git
 make install dependencies
 make build
-./fsummay a_file_you_like.example
+./fsummay --script-dir ./scripts  Makefile #this will print info about the Makefile
 
 ```
 

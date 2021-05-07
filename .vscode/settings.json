@@ -7,6 +7,10 @@
     ],
     "files.associations": {
         "__string": "c",
-        "cstring": "c"
-    }
+        "cstring": "c",
+        "*.h": "c",
+    },
+    "Lua.diagnostics.globals": [
+        "file_path"
+    ]
 }

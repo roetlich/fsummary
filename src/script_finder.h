@@ -1,8 +1,3 @@
 #pragma once
-#include "sds/sds.h"
 
-sds sub_str(sds, int, int);
-
-sds get_filename_ext(sds);
-sds get_filename_without_ext(sds);
-sds find_script(sds filename, sds scripts_dir);
+const char *find_script(const char *filename, const char *scripts_dir);
