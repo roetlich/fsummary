@@ -1,4 +1,4 @@
 #pragma once
 #include <stdbool.h>
 
-bool load_lua(char *script_path, char *file_path);
+bool load_lua(const char *script_path, const char *file_path);

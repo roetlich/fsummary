@@ -34,6 +34,5 @@ Lang get_lang(const char *script_path) {
   if (MATCH(ext, "yasl")) {
     return yasl_lang;
   }
-  free(ext);
   return unknown_lang;
 }

@@ -22,7 +22,7 @@ int main(int argc, const char *argv[]) {
   const char *script_dir = 0;
 
   for (int i = 1; i < argc; i++) {
-    char *arg = argv[i];
+    const char *arg = argv[i];
     if (MATCH(arg, "-h") || MATCH(arg, "--help")) {
       print_help();
       return EXIT_SUCCESS;

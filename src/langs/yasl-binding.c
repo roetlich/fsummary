@@ -2,7 +2,7 @@
 #include "dependencies/yasl/yasl.h"
 #include <string.h>
 
-bool load_yasl(char *script_path, char *file_path) {
+bool load_yasl(const char *script_path, const char *file_path) {
   // make a new YASL state, loaded the script from script_path
   struct YASL_State *S = YASL_newstate(script_path);
 

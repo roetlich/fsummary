@@ -15,7 +15,7 @@ const char *find_script(const char *filename, const char *scripts_dir) {
   } else {
     while ((entry = readdir(dir))) {
       if (!memcmp(file_extension, entry->d_name, strlen(file_extension))) {
-        char *dest = malloc((120) * sizeof(char));
+        char *dest = malloc((257) * sizeof(char));
         sprintf(dest, "%s/%s", scripts_dir, entry->d_name);
         return dest;
       }
