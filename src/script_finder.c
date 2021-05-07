@@ -11,15 +11,18 @@ const char *find_script(const char *filename, const char *scripts_dir) {
   DIR *dir = opendir(scripts_dir);
   struct dirent *entry;
   if (dir == NULL) {
+    closedir(dir);
     return "";
   } else {
     while ((entry = readdir(dir))) {
       if (!memcmp(file_extension, entry->d_name, strlen(file_extension))) {
         char *dest = malloc((257) * sizeof(char));
         sprintf(dest, "%s/%s", scripts_dir, entry->d_name);
+        closedir(dir);
         return dest;
       }
     }
   }
+  closedir(dir);
   return 0;
 }

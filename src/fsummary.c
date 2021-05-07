@@ -72,6 +72,7 @@ int main(int argc, const char *argv[]) {
   } else {
 
     bool status = load_script(script, file_name);
+    free((void*)script);
     if (status) {
       return EXIT_SUCCESS;
     } else {
