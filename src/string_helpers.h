@@ -1,10 +1,9 @@
 #pragma once
-#include "sds/sds.h"
 #include <stdbool.h>
+#include <stdio.h>
 
-bool sdsmatch(sds str1, const char *str2, size_t l);
-#define MATCH(str1, str2) sdsmatch(str1, str2, sizeof(str2) - 1)
+#define MATCH(str1, str2) !strncmp(str1, str2, sizeof(str2) - 1)
 
-sds get_filename_ext(sds filename);
+const char *get_filename_ext(const char *filename);
 
-bool starts_with_dashdash(sds str);
+bool starts_with_dashdash(const char *str);
